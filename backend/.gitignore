@@ -1,0 +1,7 @@
+node_modules
+# Keep environment variables out of version control
+.env
+prisma/dev*
+.vscode
+.DS_Store
+CSC309 Assignment 2 Handout.pdf

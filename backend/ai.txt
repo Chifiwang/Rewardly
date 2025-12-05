@@ -1,0 +1,6 @@
+Personally, I used AI primarily for debugging purposes.
+
+Including creating debugging console.log statements, and checking validation order within endpoints to make sure I'm not checking something too early (leading to unexpected errors).
+
+I also did use AI to help with basic boilerplate code (i.e., password validation, or checking if fields are not null).
+It's just a lot of copy and pasting different components to make sure we check everything for each endpoint.

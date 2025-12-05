@@ -1,0 +1,106 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum RoleType {
+  regular
+  cashier
+  manager
+  superuser
+}
+
+enum TransactionType {
+  purchase
+  redemption
+  adjustment
+  event
+  transfer
+}
+
+enum PromotionType {
+  automatic
+  onetime
+}
+
+model User {
+  id            Int           @id @default(autoincrement())
+  utorid        String        @unique
+  name          String?
+  email         String
+  birthday      DateTime?
+  verified      Boolean       @default(false)
+  activated     Boolean       @default(false)
+  createdAt     DateTime      @default(now())
+  lastLogin     DateTime?
+  expiresAt     DateTime?
+  resetToken    String?       @unique @default(uuid())
+  role          RoleType
+  password      String?
+  page          Int           @default(1)
+  limit         Int           @default(1)
+  points        Int           @default(0)
+  avatarUrl     String?
+  suspicious    Boolean       @default(false)
+
+  promotions    Promotion[]   @relation("UserPromotions")
+  transactions  Transaction[]
+  organized     Event[]       @relation("OrganizedEvents")
+  attending     Event[]       @relation("AttendingEvents")
+}
+
+model Promotion {
+  id            Int             @id @default(autoincrement())
+  name          String
+  description   String?
+  type          PromotionType
+  startTime     DateTime?
+  endTime       DateTime?
+  minSpending   Int?
+  rate          Float?
+  points        Int?
+
+  user          User[]            @relation("UserPromotions")
+  transactions  Transaction[]   @relation("PromotionTransactions")
+}
+
+model Transaction {
+  id              Int               @id @default(autoincrement())
+  type            TransactionType
+  spent           Int?
+  earned          Int?
+  amount          Int?
+  redeemed        Int?
+  sent            Int?
+  remark          String?
+  relatedId       Int?
+  createdBy       String
+  suspicious      Boolean           @default(false)
+  sender          String?
+  recipient       String?
+  processedBy      String?
+
+  utorid          String
+  user            User              @relation(fields: [utorid], references: [utorid])
+
+  promotionIds    Promotion[]       @relation("PromotionTransactions")
+}
+
+model Event {
+  id              Int               @id @default(autoincrement())
+  name            String
+  description     String?
+  location        String?
+  startTime       DateTime
+  endTime         DateTime
+  capacity        Int?
+  pointsRemain    Int?
+  pointsAwarded   Int?              @default(0)
+  published       Boolean
+
+  organizers      User[]           @relation("OrganizedEvents")
+  guests          User[]           @relation("AttendingEvents")
+}

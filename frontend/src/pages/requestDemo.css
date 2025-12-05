@@ -1,0 +1,196 @@
+.demo {
+  background: radial-gradient(circle at top, oklch(0.98 0.02 255) 0%, transparent 55%) no-repeat,
+    var(--background);
+}
+
+.demo__shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 6vw, 4rem) 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.demo__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 720px;
+}
+
+.demo__intro h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.demo__intro p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: color-mix(in oklch, var(--foreground), transparent 30%);
+  line-height: 1.5;
+}
+
+.demo__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: color-mix(in oklch, var(--foreground), transparent 45%);
+  font-weight: 600;
+}
+
+.demo__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.demo__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 30px 55px rgba(15, 23, 42, 0.08);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row label {
+  flex: 1;
+}
+
+.demo__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--foreground), transparent 40%);
+}
+
+.demo__form textarea {
+  width: 100%;
+  min-height: 130px;
+  border-radius: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+  background: color-mix(in oklch, var(--secondary) 18%, transparent);
+  color: var(--foreground);
+  font-size: 0.95rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.demo__form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+}
+
+.demo__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.demo__secondary {
+  text-decoration: none;
+  font-weight: 600;
+  color: color-mix(in oklch, var(--foreground), transparent 35%);
+}
+
+.demo__status {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.demo__status--pending {
+  background: color-mix(in oklch, var(--secondary) 25%, transparent);
+  color: oklch(0.45 0.05 250);
+}
+
+.demo__status--success {
+  background: color-mix(in oklch, var(--primary) 25%, transparent);
+  color: var(--primary);
+}
+
+.demo__status--error {
+  background: color-mix(in oklch, var(--destructive) 20%, transparent);
+  color: oklch(0.45 0.16 35);
+}
+
+.demo__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.demo__card {
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  box-shadow: 0 30px 55px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.demo__card article {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.demo__card svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--primary);
+  margin-top: 0.2rem;
+}
+
+.demo__card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.demo__card p {
+  margin: 0;
+  color: color-mix(in oklch, var(--foreground), transparent 35%);
+  line-height: 1.45;
+}
+
+.demo__card.muted {
+  background: radial-gradient(circle at top, oklch(0.98 0.01 255) 0%, transparent 55%) no-repeat,
+    var(--card);
+}
+
+@media (max-width: 960px) {
+  .demo__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .demo__shell {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .demo__form,
+  .demo__card {
+    padding: 1.5rem;
+  }
+}
