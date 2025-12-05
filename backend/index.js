@@ -32,9 +32,9 @@ try {
 
 console.log(FRONTEND_URL);
 app.use(cors({
-    origin: "*",
+    origin: FRONTEND_URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'credentials'],
     credentials: true
 }));
 app.use(express.json());

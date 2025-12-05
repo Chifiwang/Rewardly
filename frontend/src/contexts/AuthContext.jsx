@@ -131,6 +131,7 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/events${query}`, {
             method: "GET",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+            credentials: 'include'
         });
         const body = await res.json();
         console.log(body);
@@ -146,6 +147,7 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/events${query}`, {
             method: "GET",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+            credentials: 'include'
         });
         const body = await res.json();
         console.log(body);
@@ -163,7 +165,8 @@ export const AuthProvider = ({ children }) => {
               "Content-Type": "application/json",
               "Authorization": `Bearer ${token}`
           },
-          body: JSON.stringify(e)
+          body: JSON.stringify(e),
+          credentials: 'include'
       });
 
       const data = await res.json();
@@ -185,7 +188,8 @@ export const AuthProvider = ({ children }) => {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify(updates)
+        body: JSON.stringify(updates),
+        credentials: 'include'
       });
 
       let data;
@@ -224,6 +228,7 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/promotions${query}`, {
             method: "GET",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+            credentials: 'include'
         });
         const body = await res.json();
         console.log(body);
@@ -240,7 +245,8 @@ export const AuthProvider = ({ children }) => {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ password })
+            body: JSON.stringify({ password }),
+            credentials: 'include'
         });
         if (!res.ok) {
             let data;
@@ -270,7 +276,8 @@ export const AuthProvider = ({ children }) => {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             },
-            body: JSON.stringify(preparePromotionPayload(p))
+            body: JSON.stringify(preparePromotionPayload(p)),
+            credentials: 'include'
         });
         const data = await res.json();
         console.log(data)
@@ -288,7 +295,8 @@ export const AuthProvider = ({ children }) => {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             },
-            body: JSON.stringify(updates)
+            body: JSON.stringify(updates),
+            credentials: 'include'
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Failed to update promotion");
@@ -305,7 +313,8 @@ export const AuthProvider = ({ children }) => {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ password })
+            body: JSON.stringify({ password }),
+            credentials: 'include'
         });
         if (!res.ok) {
             let data;
@@ -334,7 +343,8 @@ export const AuthProvider = ({ children }) => {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ utorid: user.utorid })
+            body: JSON.stringify({ utorid: user.utorid }),
+            credentials: 'include'
         });
     }
 
@@ -347,7 +357,8 @@ export const AuthProvider = ({ children }) => {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,
-                }
+                },
+                credentials: 'include'
             });
             console.log("Backend response status:", res.status);
             if (res.ok) {
@@ -380,7 +391,8 @@ export const AuthProvider = ({ children }) => {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`
-            }
+            },
+            credentials: 'include'
         });
         let data;
         try {
@@ -409,7 +421,8 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/transactions/${id}/processed`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
-            body: JSON.stringify({ processed: true })
+            body: JSON.stringify({ processed: true }),
+            credentials: 'include'
         });
 
         console.log(await res.json())
@@ -427,7 +440,8 @@ export const AuthProvider = ({ children }) => {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(t)
+            body: JSON.stringify(t),
+            credentials: 'include'
         });
         let data;
         try {
@@ -454,6 +468,7 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/transactions${query}`, {
             method: "GET",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+            credentials: 'include'
         });
         return transactions;
     }
@@ -474,6 +489,7 @@ export const AuthProvider = ({ children }) => {
             const res = await fetch(`${BACKEND_URL}/transactions/${id}`, {
                 method: "GET",
                 headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+                credentials: 'include'
             });
             const body = await res.json();
             return body;
@@ -483,6 +499,7 @@ export const AuthProvider = ({ children }) => {
             const res = await fetch(`${BACKEND_URL}/users/me/transactions${query}`, {
                 method: "GET",
                 headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+                credentials: 'include'
             });
             const body = await res.json();
             console.log("body")
@@ -500,6 +517,7 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/users/me/transactions${query}`, {
             method: "GET",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
+            credentials: 'include'
         });
         const body = await res.json();
         console.log(body);
@@ -512,7 +530,8 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/transactions`, {
             method: "POST",
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-            body: JSON.stringify(t)
+            body: JSON.stringify(t),
+            credentials: 'include'
         });
         let data;
         try { data = await res.json(); } catch (e) { data = {}; }
@@ -527,7 +546,8 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/transactions/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-            body: JSON.stringify(updates)
+            body: JSON.stringify(updates),
+            credentials: 'include'
         });
         let data;
         try { data = await res.json(); } catch (e) { data = {}; }
@@ -541,7 +561,8 @@ export const AuthProvider = ({ children }) => {
         if (!token) return;
         const res = await fetch(`${BACKEND_URL}/transactions/${id}`, {
             method: "DELETE",
-            headers: { "Authorization": `Bearer ${token}` }
+            headers: { "Authorization": `Bearer ${token}` },
+            credentials: 'include'
         });
         if (!res.ok) {
             let data;
@@ -558,7 +579,8 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/users/me/transactions`, {
             method: "POST",
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-            body: JSON.stringify(t)
+            body: JSON.stringify(t),
+            credentials: 'include'
         });
         let data;
         try { data = await res.json(); } catch (e) { data = {}; }
@@ -582,7 +604,8 @@ export const AuthProvider = ({ children }) => {
             return;
         }
         fetch(`${BACKEND_URL}/users/me`, {
-            headers: { "Authorization": `Bearer ${token}` }
+            headers: { "Authorization": `Bearer ${token}` },
+            credentials: 'include'
         })
         .then(async (res) => {
             if (!res.ok) throw new Error(await res.json().then(d => d.error || "Failed to load profile"));
@@ -601,7 +624,8 @@ export const AuthProvider = ({ children }) => {
         const token = tokenOverride || localStorage.getItem("token");
         if (!token) return;
         return fetch(`${BACKEND_URL}/events?limit=200`, {
-            headers: { "Authorization": `Bearer ${token}` }
+            headers: { "Authorization": `Bearer ${token}` },
+            credentials: 'include'
         })
           .then(res => res.json())
           .then(data => {
@@ -631,7 +655,8 @@ export const AuthProvider = ({ children }) => {
         const token = tokenOverride || localStorage.getItem("token");
         if (!token) return;
         return fetch(`${BACKEND_URL}/promotions?limit=200`, {
-            headers: { "Authorization": `Bearer ${token}` }
+            headers: { "Authorization": `Bearer ${token}` },
+            credentials: 'include'
         })
           .then(res => res.json())
           .then(data => {
@@ -651,7 +676,8 @@ export const AuthProvider = ({ children }) => {
         const token = tokenOverride || localStorage.getItem("token");
         if (!token) return;
         return fetch(`${BACKEND_URL}/transactions?limit=200`, {
-            headers: { "Authorization": `Bearer ${token}` }
+            headers: { "Authorization": `Bearer ${token}` },
+            credentials: 'include'
         })
           .then(res => res.json())
           .then(data => {
@@ -701,7 +727,8 @@ export const AuthProvider = ({ children }) => {
             const pwd = typeof username === "object" ? username.password : password;
             const res = await fetch(`${BACKEND_URL}/auth/tokens`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" , credentials: 'include' },
+                headers: { "Content-Type": "application/json" },
+                credentials: 'include',
                 body: JSON.stringify({ utorid, password: pwd })
             });
             const data = await res.json();
@@ -711,9 +738,8 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem("token", data.token);
 
             const meRes = await fetch(`${BACKEND_URL}/users/me`, {
-                headers: { "Authorization": `Bearer ${data.token}`,
-                            credentials: 'include'
-                  }
+                headers: { "Authorization": `Bearer ${data.token}` },
+                credentials: 'include'
             });
             const me = await meRes.json();
             if (!meRes.ok) {
@@ -738,6 +764,7 @@ export const AuthProvider = ({ children }) => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, firstname, lastname, password }),
+                credentials: 'include'
             });
 
             const data = await res.json();
@@ -758,7 +785,8 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/events/${eId}/guests`, {
             method: "POST",
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-            body: JSON.stringify({utorid: uId})
+            body: JSON.stringify({utorid: uId}),
+            credentials: 'include'
         });
     }
 
@@ -772,7 +800,8 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch(`${BACKEND_URL}/events/${eId}/transactions`, {
             method: "POST",
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-            body: JSON.stringify({type: "event", utorid: uId?uId:null, amount: Number(amount), remark: remark?remark:null})
+            body: JSON.stringify({type: "event", utorid: uId?uId:null, amount: Number(amount), remark: remark?remark:null}),
+            credentials: 'include'
         });
 
         console.log(await res.json())
@@ -796,3 +825,4 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
     return useContext(AuthContext);
 };
+
