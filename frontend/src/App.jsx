@@ -34,7 +34,7 @@ import { OrganizerDashboard } from "./pages/organizer"
 import { AuthProvider, useAuth  } from "./contexts/AuthContext"
 import { Register } from "./pages/register"
 
-import './app.css'
+import './App.css'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
