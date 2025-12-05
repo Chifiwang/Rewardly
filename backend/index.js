@@ -25,6 +25,7 @@ const cors = require("cors");
 const { execSync } = require("child_process");
 
 try {
+    execSync("npx prisma migrate deploy", { stdio: "inherit" });
     execSync("node prisma/seed.js", { stdio: "inherit" });
 } catch (err) {
     console.error("Failed to seed database on start:", err.message);
