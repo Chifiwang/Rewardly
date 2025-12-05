@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Tab } from "@/components/tab"
-import { useAuth } from "../contexts/authContext"
+import { useAuth } from "../contexts/AuthContext"
 
 export function Transfer() {
   const { makeTransfer } = useAuth();
