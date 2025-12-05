@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict';
 
 const port = (() => {
     const args = process.argv;
