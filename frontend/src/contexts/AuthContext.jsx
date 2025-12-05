@@ -701,7 +701,7 @@ export const AuthProvider = ({ children }) => {
             const pwd = typeof username === "object" ? username.password : password;
             const res = await fetch(`${BACKEND_URL}/auth/tokens`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" , credentials: 'include' },
+                headers: { "Content-Type": "application/json"  },
                 body: JSON.stringify({ utorid, password: pwd })
             });
             const data = await res.json();
@@ -712,7 +712,6 @@ export const AuthProvider = ({ children }) => {
 
             const meRes = await fetch(`${BACKEND_URL}/users/me`, {
                 headers: { "Authorization": `Bearer ${data.token}`,
-                            credentials: 'include'
                   }
             });
             const me = await meRes.json();
