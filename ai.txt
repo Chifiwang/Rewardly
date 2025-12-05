@@ -1,0 +1,9 @@
+We used AI to help us develop this web application in the following ways:
+
+Salman:
+- Debugging errors related to the backend API endpoints (adding console.log statements to see intermediate values).
+- Create sample data to test with organizers for Calendar.
+- Used AI to help implement Calendar.jsx, I would ask it to add things like buttons, or a header, and then debug it 
+  to make sure it was working correctly. There would often be issues where a higher-clearance user couldn't see 
+  something on the calendar that they should, so I would use AI to help debug these issues.
+- I also used AI to modify the Event card modal which would appear after clicking an event in the calendar.

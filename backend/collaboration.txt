@@ -1,6 +1,0 @@
-I only collaborated with my project teammates.
-
-Chifeng had already implemented the user authentication and schema when I joined his group.
-I worked on the Event endpoints, some parts of the user endpoints (the multer img file upload endpoint), and some bug fixes in the transaction endpoints.
-
-Mark worked on the Transaction endpoints mainly, and Chifeng also handled the promotion endpoints.
